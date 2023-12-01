@@ -1,0 +1,18 @@
+var answers = [
+    {
+        "recording_name": "record0",
+        "answer": "Original MilkTea"
+    },
+    {
+        "recording_name": "record1",
+        "answer": "Original MilkTea,Taro MilkTea + Lychee"  
+    },
+    {
+        "recording_name": "record2",
+        "answer": "Original MilkTea"  
+    },
+    {
+        "recording_name": "record3",
+        "answer": "Original MilkTea"  
+    }
+]

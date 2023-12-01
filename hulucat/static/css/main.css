@@ -1,0 +1,232 @@
+/*
+ * @Author: mikey.zhaopeng 
+ * @Date: 2023-02-02 
+ * @Last Modified by: sam.shengle
+ * @Last Modified time: 2023-02-11 20:49:08
+ */
+* {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(230,230,230);
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+h3{
+    text-align: center;
+}
+body{
+    height: 100%;
+    width: 100%;
+}
+div{
+    width: 100%;
+}
+.btn{
+    width: 100%;
+}
+.num_of-btn{
+    width:30%;
+}
+/* Global */
+#top-div{
+    display: flex;
+    /* X */
+    padding-left: 5px;
+    padding-right: 5px;
+    /* Y */
+    height: 7%;
+    align-items: center;
+}
+#player-div{
+    display: flex;
+    align-items: center;
+}
+/* Top */
+#header-div{
+    font-size: large;
+    font-weight: bolder;
+}
+#control-div{
+    text-align: right;
+}
+/* Player */
+#player_detial-div{
+    display: flex;
+    width:auto;
+}
+#player_line-div{
+    display: inline;
+}
+audio{
+    width: 100%;
+}
+audio::-webkit-media-controls-panel{
+    background-color: rgb(230,230,230);
+}
+#page_btn-div{
+    width: auto;
+    display: flex;
+}
+#previous-btn{
+    padding-top: 5%;
+    padding-top: 5%;
+}
+#next-btn{
+    padding-top: 5%;
+    padding-top: 5%;
+}
+#submit-btn{
+    padding: 1%;
+}
+#hulucat_menu-div{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    /* overflow:auto; */
+    /* background-size: 100%; */
+    /* background: url('../HuluCat-Menu.jpg') no-repeat center top; */
+}
+#left_menu-div{
+    border: 2px solid black;
+    width: 22.75%;
+    height: 100%;
+    background-color: transparent;
+}
+#middle_menu-div{
+    width: 53.08%;
+    height: 100%;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    background-color: transparent;
+}
+#right_menu-div{    
+    border: 2px solid black;
+    width: 24.41%;
+    height: 100%;
+    background-color: transparent;
+}
+/* left_menu */
+.sub_block-div{
+    padding: 5px;
+}
+#milk_tea-div{
+    height: 53.15%;
+    background-color: transparent;
+}
+.sub_header-div{
+    background-color: rgb(43,53,66);
+    color: rgb(237,237,236);
+    text-align: center;
+}
+#fresh_tea-div{
+    border-top: 2px solid black;
+    height: 46.85%;
+    background-color: transparent;
+}
+/* middle_menu */
+#logo-div{
+    width: 100%;
+    background-color: transparent;
+}
+#middleTop_menu-div{
+    border-top: 2px solid black;
+    width: 100%;
+    height: 43.75%;
+    background-color: transparent;
+    display: flex;
+}
+#middleBot_menu-div{
+    border-top: 2px solid black;
+    width: 100%;
+    height: 37.3%;
+    background-color: transparent;
+}
+/* right_menu */
+#rightTop_menu-div{
+    border-bottom: 2px solid black;
+    width: 100%;
+    height: 35.75%;
+    background-color: transparent;
+}
+#rightMid_menu-div{
+    border-bottom: 2px solid black;
+    width: 100%;
+    height: 30.03%;
+    background-color: transparent;
+}
+#rightBot_menu-div{
+    /* border: 2px solid red; */
+    width: 100%;
+    height: 34.22%;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+}
+
+/* two_column-div */
+.two_column-div{
+    display: flex;
+}
+table{
+    border-collapse: collapse;
+    font-size:14px;
+    width: 100%;
+}
+.item_left_en{
+    width: 95px;
+}
+.item_left_cn{
+    text-align: left;
+    /* Don't Remove */
+}
+.item_right_en{
+    width: auto;
+}
+.item_right_cn{
+    text-align: right;
+    /* Don't Remove */
+}
+
+.second_column-div{
+    padding-left: 10px;
+    /* Don't Remove */
+}
+.right_column_item_en{
+    width: auto;
+    height: 22.5px;
+}
+/* middleTop_menu */
+#middleTopLeft_menu-div{
+    width: 100%;
+    background-color: transparent;
+}
+#middleTopRight_menu-div{
+    border-left: 2px solid black;
+    width: 100%;
+    background-color: transparent;
+}
+/* middleBotMain_menu */
+#middleBotMain_menu-div{
+    display: flex;
+}
+#cartBtn-div{
+    width: 100%;
+    display: flex;
+}
+#cart-div{
+    position:static;
+    overflow:auto;
+}
+#middleBotLeft_menu-div{
+    width: 61.58%;
+}
+#middleBotMid_menu-div{
+    height: 100%;
+    width: 18.42%;
+}
+#middleBotRight_menu-div{
+    border-left: 2px solid black;
+    height: 100%;
+    width: 20%;
+}

@@ -1,0 +1,732 @@
+<!-- 
+/*
+ * @Author: sam.shengle 
+ * @Date: 2023-02-02 
+ * @Last Modified by: sam.shengle
+ * @Last Modified time: 2023-02-11 20:48:50
+ */
+ -->
+ <html>
+    <head>
+        <meta charset="utf-8">
+        <title>HULUCAT LISTENING TEST</title>
+        <script src="./answer.json"></script>
+        <script src="./static/js/main.js"></script>
+        <link rel="stylesheet" type="text/css" href="static/css/main.css">
+        <link type="text/html" href="static/Answer.txt">
+    </head>
+    <body>
+        <div id="top-div">
+            <div id="header-div" onclick="showRecordingNumOrder()">HULUCAT LISTENING TEST</div>
+            <div id="control-div">
+                <input id="submit-btn" type="button" value='✔️ Submit' onclick="submitBtn()">
+            </div>
+        </div>
+        <div id="player-div">
+            <div id="player_detial-div">
+                <h2>Record</h2>
+                <h2 id="current&total"></h2>
+            </div>
+            <audio controls id="player">
+                <source type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+            <div id="page_btn-div">
+                <input id="previous-btn" type="button" value='⬅️ previous' onclick="previousBtn()">
+                <input id="next-btn" type="button" value='➡️ next' onclick="nextBtn()">
+            </div>
+        </div>
+        <div>
+            <div id="hulucat_menu-div">
+                <div id="left_menu-div">
+                    <div id="milk_tea-div" class="sub_block-div">
+                        <div name="MilkTea" class="sub_header-div">MILK TEA 奶茶</div>
+                        <b>CLASSICS</b>
+                        <table>
+                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                <td>Original</td>
+                                <td class="item_right_cn">原味</td>
+                            </tr>
+                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                <td>Jasmine</td>
+                                <td class="item_right_cn">茉香</td>
+                            </tr>
+                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                <td>Caramel</td>
+                                <td class="item_right_cn">焦糖</td>
+                            </tr>
+                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                <td>Taro</td>
+                                <td class="item_right_cn">芋頭</td>
+                            </tr>
+                        </table>
+                        <b>FRESHLY BREWED</b>
+                        <table>
+                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                <td>Oolong</td>
+                                <td class="item_right_cn">烏龍</td>
+                            </tr>
+                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                <td>Earl Grey</td>
+                                <td class="item_right_cn">伯爵</td>
+                            </tr>
+                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                <td>Roasted Rice</td>
+                                <td class="item_right_cn">玄米</td>
+                            </tr>
+                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                <td>Rose</td>
+                                <td class="item_right_cn">玫瑰</td>
+                            </tr>
+                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                <td>Puer</td>
+                                <td class="item_right_cn">普洱</td>
+                            </tr>
+                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                <td>Thai</td>
+                                <td class="item_right_cn">泰式</td>
+                            </tr>
+                        </table>
+                        <b>FUN FLAVOURS</b>
+                        <div class="two_column-div">
+                            <div>
+                                <table>
+                                    <tr class="drink" name="unselected_drink" onclick="select()">
+                                        <td class="item_left_en">Matcha</td>
+                                        <td class="item_left_cn">抹茶</td>
+                                    </tr>
+                                    <tr class="drink" name="unselected_drink" onclick="select()">
+                                        <td class="item_left_en">Oatmeal</td>
+                                        <td class="item_left_cn">麥片</td>
+                                    </tr>
+                                    <tr class="drink" name="unselected_drink" onclick="select()">
+                                        <td class="item_left_en">Rockmelon</td>
+                                        <td class="item_left_cn">哈密瓜</td>
+                                    </tr>
+                                    <tr class="drink" name="unselected_drink" onclick="select()">
+                                        <td class="item_left_en">Mango</td>
+                                        <td class="item_left_cn">芒果</td>
+                                    </tr>
+                                    <tr class="drink" name="unselected_drink" onclick="select()">
+                                        <td class="item_left_en">Strawberry</td>
+                                        <td class="item_left_cn">草莓</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div id="second_column-div">
+                                <table>
+                                    <tr class="drink" name="unselected_drink" onclick="select()">
+                                        <td class="item_right_en">Watermelon</td>
+                                        <td class="item_right_cn">西瓜</td>
+                                    </tr>
+                                    <tr class="drink" name="unselected_drink" onclick="select()">
+                                        <td class="item_right_en">Chocolate</td>
+                                        <td class="item_right_cn">巧克力</td>
+                                    </tr>
+                                    <tr class="drink" name="unselected_drink" onclick="select()">
+                                        <td class="item_right_en">Coffee</td>
+                                        <td class="item_right_cn">咖啡</td>
+                                    </tr>
+                                    <tr class="drink" name="unselected_drink" onclick="select()">
+                                        <td class="item_right_en">Mocha</td>
+                                        <td class="item_right_cn">摩卡</td>
+                                    </tr>
+                                    <tr class="drink" name="unselected_drink" onclick="select()">
+                                        <td class="item_right_en">Egg</td>
+                                        <td class="item_right_cn">雞蛋</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="fresh_tea-div" class="sub_block-div">
+                        <div name="Tea" class="sub_header-div">FRESH TEA 茶</div>
+                        <b>FRUITY BLACK/GREEN TEA</b>
+                        <div class="two_column-div">
+                            <div>
+                                <table>
+                                    <tr class="drink" name="unselected_drink" onclick="select()">
+                                        <td class="item_left_en">Yogurt GT</td>
+                                        <td class="item_left_cn">多多緣</td>
+                                    </tr>
+                                    <tr class="drink" name="unselected_drink" onclick="select()">
+                                        <td class="item_left_en">Peach</td>
+                                        <td class="item_left_cn">水蜜桃</td>
+                                    </tr>
+                                    <tr class="drink" name="unselected_drink" onclick="select()">
+                                        <td class="item_left_en">Passionfruit</td>
+                                        <td class="item_left_cn">百香果</td>
+                                    </tr>
+                                    <tr class="drink" name="unselected_drink" onclick="select()">
+                                        <td class="item_left_en">Lychee</td>
+                                        <td class="item_left_cn">荔枝</td>
+                                    </tr>
+                                    <tr class="drink" name="unselected_drink" onclick="select()">
+                                        <td class="item_left_en">Pineapple</td>
+                                        <td class="item_left_cn">鳳梨</td>
+                                    </tr>
+                                    <tr class="drink" name="unselected_drink" onclick="select()">
+                                        <td class="item_left_en">Lemon</td>
+                                        <td class="item_left_cn">檸檬</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="second_column-div">
+                                <table>
+                                    <tr class="drink" name="unselected_drink" onclick="select()">
+                                        <td class="item_left_en">Kiwifruit</td>
+                                        <td class="item_right_cn">奇異果</td>
+                                    </tr>
+                                    <tr class="drink" name="unselected_drink" onclick="select()">
+                                        <td class="item_left_en">Green Apple</td>
+                                        <td class="item_right_cn">青蘋果</td>
+                                    </tr>
+                                    <tr class="drink" name="unselected_drink" onclick="select()">
+                                        <td class="item_left_en">Grape</td>
+                                        <td class="item_right_cn">葡萄</td>
+                                    </tr>
+                                    <tr class="drink" name="unselected_drink" onclick="select()">
+                                        <td class="item_left_en">Grapefruit</td>
+                                        <td class="item_right_cn">葡萄柚</td>
+                                    </tr>
+                                    <tr class="drink" name="unselected_drink" onclick="select()">
+                                        <td class="item_left_en">Strawberry</td>
+                                        <td class="item_right_cn">草莓</td>
+                                    </tr>
+                                    <tr class="drink" name="unselected_drink" onclick="select()">
+                                        <td class="item_left_en">Lime</td>
+                                        <td class="item_right_cn">金桔</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <b>ICED TEA</b>
+                        <div class="two_column-div">
+                            <div>
+                                <table>
+                                    <tr class="drink" name="unselected_drink" onclick="select()">
+                                        <td class="item_left_en">Black Tea</td>
+                                        <td class="item_left_cn">紅茶</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="second_column-div">
+                                <table>
+                                    <tr class="drink" name="unselected_drink" onclick="select()">
+                                        <td class="item_right_en">Green Tea</td>
+                                        <td class="item_right_cn">綠茶</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <b>FRESHLY BREWED</b>
+                        <div class="two_column-div">
+                            <div>
+                                <table>
+                                    <tr class="drink" name="unselected_drink" onclick="select()">
+                                        <td class="item_left_en">Oolong Tea</td>
+                                        <td class="item_left_cn">烏龍茶</td>
+                                    </tr>
+                                    <tr class="drink" name="unselected_drink" onclick="select()">
+                                        <td class="item_left_en">Eearl Grey Tea</td>
+                                        <td class="item_left_cn">伯爵茶</td>
+                                    </tr>
+                                    <tr class="drink" name="unselected_drink" onclick="select()">
+                                        <td class="item_left_en">Rose Tea</td>
+                                        <td class="item_left_cn">玫瑰茶</td>
+                                    </tr>
+                                    <tr class="drink" name="unselected_drink" onclick="select()">
+                                        <td class="item_left_en">Puer Tea</td>
+                                        <td class="item_left_cn">普洱茶</td>
+                                    </tr>
+                                    <tr class="drink" name="unselected_drink" onclick="select()">
+                                        <td class="item_left_en">Peach Rose Tea</td>
+                                        <td class="item_left_cn">蜜桃玫瑰茶</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="second_column-div">
+                                <table class="right_column_item_en">
+                                    <tr class="drink" name="unselected_drink" onclick="select()">
+                                        <td class="item_right_en">Roasted Rice Tea</td>
+                                        <td class="item_right_cn">玄米茶</td>
+                                    </tr>
+                                    <tr class="drink" name="unselected_drink" onclick="select()">
+                                        <td class="item_right_en">Shanlinxi Tea</td>
+                                        <td class="item_right_cn">衫林溪茶</td>
+                                    </tr>
+                                    <tr class="drink" name="unselected_drink" onclick="select()">
+                                        <td class="item_right_en">Four Seasons Tea</td>
+                                        <td class="item_right_cn">四季春茶</td>
+                                    </tr>
+                                    <tr class="drink" name="unselected_drink" onclick="select()">
+                                        <td class="item_right_en">Jinxuan Tea</td>
+                                        <td class="item_right_cn">金萱茶</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="middle_menu-div">
+                    <div id="logo-div">
+                        <h3>HULUCAT</h3>
+                        <div style="display:flex;">
+                            <!-- <input class="btn" type="file" files="" id="file" style="width:50%;border-style:outset;" onchange="openFile()"> -->
+                            <input class="btn" type="button" value="🧹 Empty" onclick="emptySelect()">
+                            <input class="btn" type="button" value="🛒 Add to Cart" onclick="add2Cart()">
+                            <input id="check-btn" class="btn" type="button" value='CHECK' onclick="checkBtn()">
+                        </div>
+                        <p>
+                            <b>Select:</b>
+                            <select name="sugar" id="sugar">
+                                <option value="none" selected="selected">None</option>
+                                <optgroup label="Sweetness">
+                                    <option value="125%sugar">Extra Sugar</option>
+                                    <option value="100%sugar">Full Sugar</option>
+                                    <option value="75%sugar">3/4 Sugar</option>
+                                    <option value="50%sugar">1/2 Sugar</option>
+                                    <option value="25%sugar">1/4 Sugar</option>
+                                    <option value="0%sugar">No Sugar</option>
+                                </optgroup>
+                            </select>
+                            <select name="temperature" id="temperature">
+                                <option value="none" selected="selected">None</option>
+                                <optgroup label="Temperature">
+                                    <option value="MI">More Ice</option>
+                                    <option value="I">Iced</option>
+                                    <option value="LI">Less Ice</option>
+                                    <option value="NI">No Ice</option>
+                                    <option value="RT">Room Temperature</option>
+                                    <option value="W">Warm</option>
+                                    <option value="H">Hot</option>
+                                    <option value="VH">Very Hot</option>
+                                </optgroup>
+                            </select>
+                            <span id="correct|incorrect"></span>
+                        </p>
+                        <p id="selected_menu" style="user-select:text;text-align: center;display:block;"></p>
+                    </div>
+                    <div id="middleTop_menu-div">
+                        <div id="middleTopLeft_menu-div">
+                            <div id="middleTopLeftTop_menu-div" class="sub_block-div">
+                                <div name="" class="sub_header-div">WARM UP 养生</div>
+                                <table>
+                                    <tr class="drink" name="unselected_drink" onclick="select()">
+                                        <td>Red Date Black Tea</td>
+                                        <td>桂圓紅棗茶</td>
+                                    </tr>
+                                    <tr class="drink" name="unselected_drink" onclick="select()">
+                                        <td>Ginger Milk Tea</td>
+                                        <td>薑汁撞奶</td>
+                                    </tr>
+                                    <tr class="drink" name="unselected_drink" onclick="select()">
+                                        <td>Ginger Lemon</td>
+                                        <td>薑汁檸檬</td>
+                                    </tr>
+                                    <tr class="drink" name="unselected_drink" onclick="select()">
+                                        <td>Red Date Fresh Milk w./w.o Pearls</td>
+                                        <td>桂圓珍珠鲜奶</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div id="middleTopLeftBot_menu-div" class="sub_block-div">
+                                <div name="Slushy" class="sub_header-div">SLUSHY 冰沙</div>
+                                <div class="two_column-div">
+                                    <div>
+                                        <table>
+                                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                                <td class="item_left_en">Grape</td>
+                                                <td class="item_left_cn">葡萄</td>
+                                            </tr>
+                                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                                <td class="item_left_en">Lemon</td>
+                                                <td class="item_left_cn">檸檬</td>
+                                            </tr>
+                                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                                <td class="item_left_en">Lime</td>
+                                                <td class="item_left_cn">金桔</td>
+                                            </tr>
+                                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                                <td class="item_left_en">Yogurt</td>
+                                                <td class="item_left_cn">多多</td>
+                                            </tr>
+                                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                                <td class="item_left_en">Strawberry</td>
+                                                <td class="item_left_cn">草莓</td>
+                                            </tr>
+                                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                                <td class="item_left_en">Mango</td>
+                                                <td class="item_left_cn">芒果</td>
+                                            </tr>
+                                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                                <td class="item_left_en">Peach</td>
+                                                <td class="item_left_cn">水蜜桃</td>
+                                            </tr>
+                                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                                <td class="item_left_en">Passionfruit</td>
+                                                <td class="item_left_cn">百香果</td>
+                                            </tr>
+                                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                                <td class="item_left_en">Green Apple</td>
+                                                <td class="item_left_cn">青蘋果</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="second_column-div">
+                                        <table>
+                                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                                <td class="item_left_en">Pineapple</td>
+                                                <td class="item_right_cn">鳳梨</td>
+                                            </tr>
+                                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                                <td class="item_left_en">Grapefruit</td>
+                                                <td class="item_right_cn">葡萄柚</td>
+                                            </tr>
+                                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                                <td class="item_left_en">Lychee</td>
+                                                <td class="item_right_cn">荔枝</td>
+                                            </tr>
+                                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                                <td class="item_left_en">Matcha</td>
+                                                <td class="item_right_cn">抹茶</td>
+                                            </tr>
+                                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                                <td class="item_left_en">Taro</td>
+                                                <td class="item_right_cn">芋頭</td>
+                                            </tr>
+                                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                                <td class="item_left_en">Coffee</td>
+                                                <td class="item_right_cn">咖啡</td>
+                                            </tr>
+                                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                                <td class="item_left_en">Mocha</td>
+                                                <td class="item_right_cn">摩卡</td>
+                                            </tr>
+                                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                                <td class="item_left_en">Chocolate</td>
+                                                <td class="item_right_cn">巧克力</td>
+                                            </tr>
+                                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                                <td class="item_left_en">Kiwifruit</td>
+                                                <td class="item_right_cn">奇異果</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="middleTopRight_menu-div">
+                            <div id="middleTopRightTop_menu-div" class="sub_block-div">    
+                                <div name="TeaLatte" class="sub_header-div">TEA LATTE 拿鐵</div>
+                                <table>
+                                    <tr class="drink" name="unselected_drink" onclick="select()">
+                                        <td>Black Tea Latte</td>
+                                        <td>紅茶拿鐵</td>
+                                    </tr>
+                                    <tr class="drink" name="unselected_drink" onclick="select()">
+                                        <td>Caramel Latte</td>
+                                        <td>焦糖拿鐵</td>
+                                    </tr>
+                                    <tr class="drink" name="unselected_drink" onclick="select()">
+                                        <td>Oolong Latte</td>
+                                        <td>烏龍拿鐵</td>
+                                    </tr>
+                                    <tr class="drink" name="unselected_drink" onclick="select()">
+                                        <td>Winter Melon Latte</td>
+                                        <td>冬瓜拿鐵</td>
+                                    </tr>
+                                    <tr class="drink" name="unselected_drink" onclick="select()">
+                                        <td>Brown Sugar fresh Milk</td>
+                                        <td>黑糖蜜鮮奶</td>
+                                    </tr>
+                                    <tr class="drink" name="unselected_drink" onclick="select()">
+                                        <td>Red Date Latte w./w.o Pearis</td>
+                                        <td>桂圓珍珠拿鐵</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div id="middleTopRightMid_menu-div" class="sub_block-div">
+                                <div name="" class="sub_header-div">WINTER MELON 冬瓜</div>
+                                <div class="two_column-div">
+                                    <div>
+                                        <table>
+                                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                                <td class="item_left_en">Black Tea</td>
+                                                <td class="item_left_cn">冬瓜紅茶</td>
+                                            </tr>
+                                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                                <td class="item_left_en">Milk Tea</td>
+                                                <td class="item_left_cn">冬瓜奶茶</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="second_column-div">
+                                        <table>
+                                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                                <td class="item_left_en">Green Milk Tea</td>
+                                                <td class="item_right_cn">冬瓜奶綠</td>
+                                            </tr>
+                                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                                <td class="item_left_en">Lemon</td>
+                                                <td class="item_right_cn">冬瓜檸檬</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="middleTopRightBot_menu-div" class="sub_block-div">
+                                <div name="YoghurtJuice" class="sub_header-div">YOGHURT JUICE 多多</div>
+                                <div class="two_column-div">
+                                    <div>
+                                        <table>
+                                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                                <td class="item_left_en">Passionfruit</td>
+                                                <td class="item_left_cn">百香果</td>
+                                            </tr>
+                                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                                <td class="item_left_en">Pineapple</td>
+                                                <td class="item_left_cn">鳳梨</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="second_column-div">
+                                        <table>
+                                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                                <td class="item_left_en">Grapefruit</td>
+                                                <td class="item_right_cn">葡萄柚</td>
+                                            </tr>
+                                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                                <td class="item_left_en">Lime</td>
+                                                <td class="item_right_cn">金桔</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="middleBot_menu-div">
+                        <div name="" class="sub_header-div" style="background-color:rgb(237,237,237);color:rgb(135,135,135)">TOPPINGS</div>
+                        <div id="middleBotMain_menu-div">
+                            <div id="middleBotMainLeft_menu-div" class="sub_block-div">
+                                <b>PEARLS</b>
+                                <table>
+                                    <tr class="topping" name="topping" onclick="selectTopping()">
+                                        <td>Big Pearls</td>
+                                        <td class="item_right_cn">大珍珠</td>
+                                    </tr>
+                                    <tr class="topping" name="topping" onclick="selectTopping()">
+                                        <td>Mini Pearls</td>
+                                        <td class="item_right_cn">小珍珠</td>
+                                    </tr>
+                                    <tr class="topping" name="topping" onclick="selectTopping()">
+                                        <td>Mix Pearls</td>
+                                        <td class="item_right_cn">混珠</td>
+                                    </tr>
+                                    <tr class="topping" name="topping" onclick="selectTopping()">
+                                        <td>Agar Pearls</td>
+                                        <td class="item_right_cn">寒天晶球</td>
+                                    </tr>
+                                    <tr class="topping" name="topping" onclick="selectTopping()">
+                                        <td>Sago</td>
+                                        <td class="item_right_cn">西米露</td>
+                                    </tr>
+                                    <tr class="topping" name="topping" onclick="selectTopping()">
+                                        <td>Taro Ball</td>
+                                        <td class="item_right_cn">芋圓</td>
+                                    </tr>
+                                </table>
+                                <b>SPECIAL</b>
+                                <table>
+                                    <tr class="topping" name="topping" onclick="selectTopping()">
+                                        <td>Honey Aloe</td>
+                                        <td class="item_right_cn">蘆薈</td>
+                                    </tr>
+                                    <tr class="topping" name="topping" onclick="selectTopping()">
+                                        <td>Chia Seeds</td>
+                                        <td class="item_right_cn">奇亞籽</td>
+                                    </tr>
+                                    <tr class="topping" name="topping" onclick="selectTopping()">
+                                        <td>Cream Cheese</td>
+                                        <td class="item_right_cn">芝士奶蓋</td>
+                                    </tr>
+                                    <tr class="topping" name="topping" onclick="selectTopping()">
+                                        <td>Vanilla Ice Cream</td>
+                                        <td class="item_right_cn">香草冰淇淋</td>
+                                    </tr>
+                                    <tr class="topping" name="topping" onclick="selectTopping()">
+                                        <td>Choc Ice Cream</td>
+                                        <td class="item_right_cn">巧克力冰淇淋</td>
+                                    </tr>
+                                    <tr class="topping" name="topping" onclick="selectTopping()">
+                                        <td>Fresh Taro</td>
+                                        <td class="item_right_cn">芋泥</td>
+                                    </tr>
+                                    <tr class="topping" name="topping" onclick="selectTopping()">
+                                        <td>Red Bean</td>
+                                        <td class="item_right_cn">紅豆</td>
+                                    </tr>
+                                    <tr class="topping" name="topping" onclick="selectTopping()">
+                                        <td>Purple Rice</td>
+                                        <td class="item_right_cn">紫米</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div id="middleBotMainRight_menu-div" class="sub_block-div">
+                                <b>JELLY</b>
+                                <table>
+                                    <tr class="topping" name="topping" onclick="selectTopping()">
+                                        <td>Lychee</td>
+                                        <td class="item_right_cn">荔枝</td>
+                                    </tr>
+                                    <tr class="topping" name="topping" onclick="selectTopping()">
+                                        <td>Green Apple</td>
+                                        <td class="item_right_cn">青蘋果</td>
+                                    </tr>
+                                    <tr class="topping" name="topping" onclick="selectTopping()">
+                                        <td>Pineapple</td>
+                                        <td class="item_right_cn">鳳梨</td>
+                                    </tr>
+                                    <tr class="topping" name="topping" onclick="selectTopping()">
+                                        <td>Grape</td>
+                                        <td class="item_right_cn">葡萄</td>
+                                    </tr>
+                                    <tr class="topping" name="topping" onclick="selectTopping()">
+                                        <td>Coffee</td>
+                                        <td class="item_right_cn">咖啡</td>
+                                    </tr>
+                                    <tr class="topping" name="topping" onclick="selectTopping()">
+                                        <td>Passionfruit</td>
+                                        <td class="item_right_cn">百香果</td>
+                                    </tr>
+                                    <tr class="topping" name="topping" onclick="selectTopping()">
+                                        <td>Peach Gum</td>
+                                        <td class="item_right_cn">桃膠</td>
+                                    </tr>
+                                </table>
+                                <b>PUDDING</b>
+                                <table>
+                                    <tr class="topping" name="topping" onclick="selectTopping()">
+                                        <td>Egg Pudding</td>
+                                        <td class="item_right_cn">雞蛋布丁</td>
+                                    </tr>
+                                    <tr class="topping" name="topping" onclick="selectTopping()">
+                                        <td>Choc Pudding</td>
+                                        <td class="item_right_cn">巧克力布丁</td>
+                                    </tr>
+                                    <tr class="topping" name="topping" onclick="selectTopping()">
+                                        <td>Taro Pudding</td>
+                                        <td class="item_right_cn">芋頭布丁</td>
+                                    </tr>
+                                    <tr class="topping" name="topping" onclick="selectTopping()">
+                                        <td>Grass Jelly</td>
+                                        <td class="item_right_cn">仙草</td>
+                                    </tr>
+                                    <tr class="topping" name="topping" onclick="selectTopping()">
+                                        <td>Lemon Pudding</td>
+                                        <td class="item_right_cn">愛玉</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="right_menu-div">
+                    <div id="rightTop_menu-div" class="sub_block-div">
+                        <div name="" class="sub_header-div">SPECIAL 特调</div>
+                        <table>
+                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                <td>Grass Jelly Milk Tea</td>
+                                <td class="item_right_cn">仙草奶凍</td>
+                            </tr>
+                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                <td>Caramel Pudding Milk Tea</td>
+                                <td class="item_right_cn">焦糖布丁奶茶</td>
+                            </tr>
+                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                <td>Fresh Taro Green Milk Tea</td>
+                                <td class="item_right_cn">鮮芋珍奶綠</td>
+                            </tr>
+                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                <td>Ice Cream Black Tea</td>
+                                <td class="item_right_cn">冰淇淋紅茶</td>
+                            </tr>
+                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                <td>Mango Lime Black Tea</td>
+                                <td class="item_right_cn">芒桔香紅</td>
+                            </tr>
+                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                <td>Lychee Lime Black Tea</td>
+                                <td class="item_right_cn">枝桔香紅</td>
+                            </tr>
+                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                <td>Apple Aloe Green Tea</td>
+                                <td class="item_right_cn">蘋果蘆薈</td>
+                            </tr>
+                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                <td>Lychee Yogurt Green Tea</td>
+                                <td class="item_right_cn">荔枝多綠</td>
+                            </tr>
+                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                <td>Lemon Lime Jelly Tea</td>
+                                <td class="item_right_cn">愛玉檸檬</td>
+                            </tr>
+                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                <td>Alyu Gourd with Agar Pearls</td>
+                                <td class="item_right_cn">寒天愛玉</td>
+                            </tr>
+                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                <td>Honey Lemon</td>
+                                <td class="item_right_cn">蜂蜜檸檬</td>
+                            </tr>
+                            <tr class="drink" name="unselected_drink" onclick="select()">
+                                <td>Honey Grapefruit</td>
+                                <td class="item_right_cn">蜂蜜檸柚</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="rightMid_menu-div" class="sub_block-div">
+                        <div name="" class="sub_header-div">DESSERT SERIES 甜點</div>
+                        <table style="font-size:13px;">
+                            <tr class="dessert" name="unselected_dessert" onclick="select()">
+                                <td>Purple Rice Yogurt: Original/Strawberry/Mango/Grape</td>
+                                <td class="item_right_cn">第米酸奶：原味/草莓/芒果/葡萄</td>
+                            </tr>
+                            <tr class="dessert" name="unselected_dessert" onclick="select()">
+                                <td>Osmanthus Oolong Tea with Peach Gum and Grass Jelly</td>
+                                <td class="item_right_cn">桃膠仙草桂花烏龍茶</td>
+                            </tr>
+                            <tr class="dessert" name="unselected_dessert" onclick="select()">
+                                <td>Oatmilk with Red Bean and Purple Rice</td>
+                                <td class="item_right_cn">红豆紫米燕麦奶</td>
+                            </tr>
+                            <tr class="dessert" name="unselected_dessert" onclick="select()">
+                                <td>Premium Matcha Fresh Milk with Red Bean</td>
+                                <td class="item_right_cn">紅茶抹茶鮮奶</td>
+                            </tr>
+                            <tr class="dessert" name="unselected_dessert" onclick="select()">
+                                <td>Taro Sago</td>
+                                <td class="item_right_cn">芋頭西米露</td>
+                            </tr>
+                            <tr class="dessert" name="unselected_dessert" onclick="select()">
+                                <td>Mango Grapefruit Sago</td>
+                                <td class="item_right_cn">楊枝甘露</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="rightBot_menu-div">
+                        <div id="cartBtn-div">
+                            <input class="btn" type="button" value="🧹 Cleanup Cart" onclick="cleanupCart()">
+                            <input class="btn" type="button" value="🧹 Delete Last" onclick="deleteLast()">
+                            <input class="btn" type="button" value="Copy Answer" onclick="copy2Clipboard()">
+                        </div>
+                        <p><b>Cart:</b></p>
+                        <div id="cart-div">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
